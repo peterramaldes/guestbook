@@ -32,7 +32,7 @@
                  [selmer "1.12.12"]]
 
   :min-lein-version "2.0.0"
-  
+
   :source-paths ["src/clj"]
   :test-paths ["test/clj"]
   :resource-paths ["resources"]
@@ -42,29 +42,29 @@
   :plugins [[lein-immutant "2.1.0"]]
 
   :profiles
-  {:uberjar {:omit-source true
-             :aot :all
-             :uberjar-name "guestbook.jar"
-             :source-paths ["env/prod/clj"]
-             :resource-paths ["env/prod/resources"]}
+  {:uberjar       {:omit-source    true
+                   :aot            :all
+                   :uberjar-name   "guestbook.jar"
+                   :source-paths   ["env/prod/clj"]
+                   :resource-paths ["env/prod/resources"]}
 
    :dev           [:project/dev :profiles/dev]
    :test          [:project/dev :project/test :profiles/test]
 
-   :project/dev  {:jvm-opts ["-Dconf=dev-config.edn"]
-                  :dependencies [[expound "0.7.2"]
-                                 [pjstadig/humane-test-output "0.9.0"]
-                                 [prone "1.6.3"]
-                                 [ring/ring-devel "1.7.1"]
-                                 [ring/ring-mock "0.4.0"]]
-                  :plugins      [[com.jakemccrary/lein-test-refresh "0.24.1"]]
-                  
-                  :source-paths ["env/dev/clj"]
-                  :resource-paths ["env/dev/resources"]
-                  :repl-options {:init-ns user}
-                  :injections [(require 'pjstadig.humane-test-output)
-                               (pjstadig.humane-test-output/activate!)]}
-   :project/test {:jvm-opts ["-Dconf=test-config.edn"]
-                  :resource-paths ["env/test/resources"]}
-   :profiles/dev {}
+   :project/dev   {:jvm-opts       ["-Dconf=dev-config.edn"]
+                   :dependencies   [[expound "0.7.2"]
+                                    [pjstadig/humane-test-output "0.9.0"]
+                                    [prone "1.6.3"]
+                                    [ring/ring-devel "1.7.1"]
+                                    [ring/ring-mock "0.4.0"]]
+                   :plugins        [[com.jakemccrary/lein-test-refresh "0.24.1"]]
+
+                   :source-paths   ["env/dev/clj"]
+                   :resource-paths ["env/dev/resources"]
+                   :repl-options   {:init-ns user}
+                   :injections     [(require 'pjstadig.humane-test-output)
+                                    (pjstadig.humane-test-output/activate!)]}
+   :project/test  {:jvm-opts       ["-Dconf=test-config.edn"]
+                   :resource-paths ["env/test/resources"]}
+   :profiles/dev  {}
    :profiles/test {}})
