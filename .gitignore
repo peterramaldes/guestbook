@@ -18,3 +18,4 @@ profiles.clj
 # Jetbrains
 .idea/*
 *.iml
+*.db
