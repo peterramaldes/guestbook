@@ -1,21 +1,17 @@
-# guestbook
+# Estudando Clojure com Framework Luminus
 
-generated using Luminus version "3.48"
+## Gerando um pacote para produção
 
-FIXME
+The application can be packaged for standalone deployment by running the following command:
 
-## Prerequisites
+```clojure
+lein uberjar
+``` 
+This will create a runnable jar that can be run as seen below:
 
-You will need [Leiningen][1] 2.0 or above installed.
+```console
+export DATABASE_URL="jdbc:h2:./guestbook_dev.db"
+java -jar target/uberjar/guestbook.jar
+```
 
-[1]: https://github.com/technomancy/leiningen
-
-## Running
-
-To start a web server for the application, run:
-
-    lein run 
-
-## License
-
-Copyright © 2019 FIXME
+Note that we have to supply the DATABASE_URL environment variable when running as a jar, as it's not packaged with the application.
