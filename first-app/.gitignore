@@ -1,4 +1,4 @@
-/target
+/first-app/target
 /lib
 /classes
 /checkouts
@@ -13,7 +13,7 @@ profiles.clj
 .nrepl-port
 
 /node_modules
-/log
+/first-app/log
 
 # Jetbrains
 .idea/*

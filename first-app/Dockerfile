@@ -1,6 +1,6 @@
 FROM openjdk:8-alpine
 
-COPY target/uberjar/guestbook.jar /guestbook/app.jar
+COPY target /guestbook/app.jar
 
 EXPOSE 3000
 
