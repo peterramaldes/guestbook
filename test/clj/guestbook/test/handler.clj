@@ -14,14 +14,14 @@
   :once
   (fn [f]
     (mount/start #'guestbook.config/env
-                 #'guestbook.handler/app)
+                 #'guestbook.handler/app-routes)
     (f)))
 
 (deftest test-app
   (testing "main route"
-    (let [response (app (request :get "/"))]
+    (let [response ((app) (request :get "/"))]
       (is (= 200 (:status response)))))
 
   (testing "not-found route"
-    (let [response (app (request :get "/invalid"))]
+    (let [response ((app) (request :get "/invalid"))]
       (is (= 404 (:status response))))))
